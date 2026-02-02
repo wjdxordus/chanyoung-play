@@ -263,7 +263,7 @@ onUnmounted(() => {
 .puzzle-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+  gap: 2px;
   background: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 100%);
   padding: 8px;
   border-radius: 20px;
