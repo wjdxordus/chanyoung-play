@@ -292,10 +292,10 @@ onUnmounted(() => {
 }
 
 .preview img {
-  width: 80px;
-  height: 80px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 16px;
   border: 3px solid #ffcdd2;
 }
 
@@ -315,8 +315,8 @@ onUnmounted(() => {
   }
 
   .preview img {
-    width: 60px;
-    height: 60px;
+    width: 120px;
+    height: 120px;
   }
 }
 </style>
