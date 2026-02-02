@@ -5,8 +5,8 @@ const GRID_SIZE = 4
 const TOTAL_TILES = GRID_SIZE * GRID_SIZE
 const EMPTY_TILE = TOTAL_TILES - 1
 
-// 이미지 경로 (public 폴더에서 참조)
-const imagePath = '/IMG_5861.JPG'
+// 이미지 경로 (public 폴더에서 참조, base path 적용)
+const imagePath = `${import.meta.env.BASE_URL}IMG_5861.JPG`
 
 // 타일 배열 (0-14: 이미지 조각, 15: 빈 칸)
 const tiles = ref([])
