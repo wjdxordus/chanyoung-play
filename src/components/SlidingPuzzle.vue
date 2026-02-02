@@ -218,56 +218,64 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: white;
+  background: linear-gradient(145deg, #fff5f8 0%, #fff9e6 100%);
   padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+  box-shadow: 0 10px 40px rgba(255, 182, 193, 0.3);
+  border: 3px solid #ffd1dc;
+  position: relative;
+  z-index: 1;
 }
 
 .stats {
   margin-bottom: 20px;
   font-size: 1.5rem;
-  color: #333;
+  color: #ff8fab;
 }
 
 .timer {
-  background: #f0f0f0;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffe4ec 100%);
   padding: 10px 24px;
   border-radius: 25px;
   font-weight: bold;
-  font-family: 'Courier New', monospace;
+  font-family: 'Comic Sans MS', cursive;
   font-size: 1.8rem;
   letter-spacing: 2px;
   transition: all 0.3s ease;
+  color: #ff8fab;
+  border: 2px solid #ffc0cb;
 }
 
 .timer.running {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ffb6c1 0%, #ffa07a 100%);
   color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 182, 193, 0.5);
+  border-color: transparent;
 }
 
 .timer.completed {
-  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  background: linear-gradient(135deg, #98fb98 0%, #90ee90 100%);
   color: white;
-  box-shadow: 0 4px 15px rgba(56, 239, 125, 0.4);
+  box-shadow: 0 4px 15px rgba(144, 238, 144, 0.5);
+  border-color: transparent;
 }
 
 .puzzle-board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
-  background: #333;
-  padding: 4px;
-  border-radius: 10px;
+  gap: 5px;
+  background: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 100%);
+  padding: 8px;
+  border-radius: 20px;
   width: 400px;
   height: 400px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .tile {
   position: relative;
-  background-color: #f0f0f0;
-  border-radius: 6px;
+  background-color: #fff5f8;
+  border-radius: 12px;
   cursor: default;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   display: flex;
@@ -277,33 +285,43 @@ onUnmounted(() => {
 
 .tile.clickable {
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
+  animation: wiggle 0.5s ease-in-out infinite;
 }
 
 .tile.clickable:hover {
   transform: scale(0.95);
-  box-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
 }
 
 .tile.empty {
-  background: #222;
+  background: linear-gradient(135deg, #ffe4ec 0%, #ffd1dc 100%);
   cursor: default;
 }
 
 .complete-message {
   margin-top: 20px;
   padding: 15px 30px;
-  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  background: linear-gradient(135deg, #98fb98 0%, #90ee90 100%);
   color: white;
-  border-radius: 10px;
+  border-radius: 20px;
   font-size: 1.2rem;
   font-weight: bold;
   animation: celebrate 0.5s ease;
+  font-family: 'Comic Sans MS', cursive;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 @keyframes celebrate {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.1) rotate(-3deg); }
+  75% { transform: scale(1.1) rotate(3deg); }
 }
 
 .buttons {
@@ -311,24 +329,26 @@ onUnmounted(() => {
 }
 
 .btn {
-  padding: 12px 30px;
-  font-size: 1rem;
+  padding: 14px 35px;
+  font-size: 1.1rem;
   font-weight: bold;
   color: white;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ffb6c1 0%, #ff69b4 100%);
   border: none;
-  border-radius: 25px;
+  border-radius: 30px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
+  font-family: 'Comic Sans MS', cursive;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
 }
 
 .btn:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .preview {
@@ -337,17 +357,19 @@ onUnmounted(() => {
 }
 
 .preview p {
-  color: #666;
+  color: #ff8fab;
   margin-bottom: 10px;
   font-size: 0.9rem;
+  font-family: 'Comic Sans MS', cursive;
 }
 
 .preview img {
   width: 150px;
   height: 150px;
   object-fit: cover;
-  border-radius: 10px;
-  border: 3px solid #eee;
+  border-radius: 20px;
+  border: 4px solid #ffc0cb;
+  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
 }
 
 @media (max-width: 480px) {
