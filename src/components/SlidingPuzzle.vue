@@ -6,7 +6,7 @@ const TOTAL_TILES = GRID_SIZE * GRID_SIZE
 const EMPTY_TILE = TOTAL_TILES - 1
 
 const baseUrl = import.meta.env.BASE_URL || '/'
-const imagePath = `${baseUrl}IMG_5861.JPG`
+const imagePath = `${baseUrl}IMG_6067.JPG`
 
 const tiles = ref([])
 const elapsedTime = ref(0)
